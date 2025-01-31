@@ -1,5 +1,5 @@
 //imporitng ship
-const Ship = require('./ship'); 
+const Ship = require('../js/ship'); 
 
 //testing the class creation
 test('Ship creation and properties', () => {

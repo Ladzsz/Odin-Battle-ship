@@ -27,3 +27,6 @@ coverage/
 .idea/
 *.swp
 *.swo
+
+# Ignore package-lock.json
+package-lock.json
