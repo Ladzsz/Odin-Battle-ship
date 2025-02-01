@@ -5,6 +5,7 @@ class Ship {
         this.length = length
         this.hit = 0;
         this.isSunk = false;
+        this.coordinates = [];
     }
 
     //hit method

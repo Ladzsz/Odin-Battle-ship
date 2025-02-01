@@ -1,0 +1,2 @@
+//imporitng gameboard
+const Ship = require('../js/ship'); 
