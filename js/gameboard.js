@@ -18,7 +18,7 @@ class Gameboard {
 
         // Create a new ship instance
         const newShip = new Ship(name, length); 
-
+    
         // Place ship horizontally
         for (let i = 0; i < length; i++) {
             this.board[x][y + i] = newShip; 
@@ -50,9 +50,6 @@ class Gameboard {
     //receive attack function
     receiveAttack([x, y]) {
         const ship = this.checkShipAt(x, y);
-
-
-
         if (ship) {
             // Call the hit function from Ship class
             ship.hits(); 
