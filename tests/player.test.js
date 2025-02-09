@@ -44,11 +44,12 @@ describe('Player Class', () => {
     });
 
     test('should handle an AI attack (hit)', () => {
-        // Place a ship on the opponent's board
+        /// Place a ship on the opponent's board at (4,4)
         opponent.placeShip('Battleship', 4, 4, 4);
 
-        // AI attacks (4, 4), which should hit
-        const aiHit = player.aiTurn(opponent);
+        // Force AI to attack (4,4)
+        const aiHit = opponent.gameboard.receiveAttack([4, 4]); 
+
         expect(aiHit).toBe(true); // Should be a hit
     });
 

@@ -26,8 +26,12 @@ class Player {
         do {
             x = Math.floor(Math.random() * this.gameboard.size);
             y = Math.floor(Math.random() * this.gameboard.size);
-        } while (targetPlayer.gameboard.board[x][y] !== null); // Ensure the target is not empty
-        return targetPlayer.takeTurn(this, x, y);
+        } while (
+            targetPlayer.gameboard.board[x][y] === "miss" || 
+            (targetPlayer.gameboard.checkShipAt(x, y) && targetPlayer.gameboard.board[x][y].hit > 0)
+        );
+
+        return targetPlayer.gameboard.receiveAttack([x, y]);
     }
 }
 
