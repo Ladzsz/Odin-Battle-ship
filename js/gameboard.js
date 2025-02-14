@@ -1,13 +1,35 @@
 //imporitng ship
-const Ship = require('./ship'); 
+import { Ship } from "./ship.js"; 
 
 //gameboard class
-class Gameboard {
+export class Gameboard {
     constructor(size = 10) {
         this.size = size;
         this.board = Array(size).fill(null).map(() => Array(size).fill(null));
         this.ships = [];
-        this.misses = 0
+        this.misses = 0;
+        this.createBoard();
+    }
+
+    createBoard() {
+        const boardElement = document.getElementById("board");
+        boardElement.innerHTML = ""; 
+
+        console.log("testing inside")
+        boardElement.style.display = "grid";
+        boardElement.style.gridTemplateColumns = `repeat(${this.size}, 40px)`;
+        boardElement.style.gridTemplateRows = `repeat(${this.size}, 40px)`;
+        boardElement.style.gap = "2px";
+
+        for (let row = 0; row < this.size; row++) {
+            for (let col = 0; col < this.size; col++) {
+                const cell = document.createElement("div");
+                cell.classList.add("cell");
+                cell.dataset.row = row;
+                cell.dataset.col = col;
+                boardElement.appendChild(cell);
+            }
+        }
     }
 
     //placeship funciton
@@ -69,4 +91,4 @@ class Gameboard {
     }
 }
 
-module.exports = Gameboard; 
+ 
