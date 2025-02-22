@@ -72,21 +72,28 @@ export class Gameboard {
     //receive attack function
     receiveAttack([x, y]) {
         const ship = this.checkShipAt(x, y);
+        const cell = document.querySelector(`[data-row='${x}'][data-col='${y}']`);
         if (ship) {
             // Call the hit function from Ship class
             ship.hits(); 
+            cell.classList.add("hit");
+
+            if (ship.isSunk) {
+                alert(`You sank the ${ship.name}!`);
+            }
             return true;
         } else {
             // Mark missed attack
             this.board[x][y] = "miss"; 
             this.misses++;
+            cell.classList.add("miss");
             return false;
         }
     }
 
     //function to check if all ships have been sunk
     checkWaters() {
-        const allSunk = this.ships.every(ship => ship.sunked); 
+        const allSunk = this.ships.every(ship => ship.isSunk); 
         return allSunk ? "All ships have sunk!" : "Ships are still afloat!";
     }
 }

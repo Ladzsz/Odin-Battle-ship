@@ -53,6 +53,19 @@ body {
     background-color: deepskyblue;
 }
 
+/* Player's placed ships turn blue */
+.ship {
+    background-color: blue; 
+}
+
+.hit {
+    background-color: red; 
+}
+
+.miss {
+    background-color: gray; 
+}
+
 /*styling footer section*/
 
 footer {

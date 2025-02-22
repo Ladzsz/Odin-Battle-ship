@@ -11,6 +11,14 @@ export class Ship {
     //hit method
     hits() {
         this.hit++;
+        this.checkIfSunk();
+    }
+
+    //check if ship is sunk
+    checkIfSunk() {
+        if (this.hit >= this.length) {
+            this.isSunk = true;
+        }
     }
 
     //sunk method
